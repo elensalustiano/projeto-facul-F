@@ -1,0 +1,35 @@
+<div style="font-size:19px;line-height:24px;padding:0 30px;margin:0 0 40px;text-align:center;">
+  <h1 style="font-size:30px;padding:15px 30px">Cartão de Embarque</h1>
+  <div>
+    <h4>Dados do(s) passageiro(s)</h4>
+    <table style="border: 1px solid black; width: 100%">
+      <thead style="padding: 2px 4px;">
+        <th>Nome</th>
+        <th>Assento</th>
+      </thead>
+      <tbody style="padding: 2px 4px;"> 
+        {{#each passenger}}
+        <tr>
+          <td >{{name}}</td>
+          <td >{{seat.line}} - {{seat.class}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <h4>Dados do voo</h4>
+    <div style="display: inline-block; padding:15px 30px">
+      <p>Localizador: {{locator}}</p>
+      {{#with flight}}
+      <p>Origem: {{departure.airport}}</p>
+      <p>Portão de origem: {{departure.gate}}</p>
+    </div>
+    <div style="display: inline-block; padding:15px 30px">
+      <p>Data e Hora: {{departure.date}} {{departure.time}}</p>
+      <p>Destino: {{landing.airport}}</p>
+      <p>Portão de destino: {{landing.gate}}</p>
+      {{/with }}
+    </div>
+  </div>
+</div>
